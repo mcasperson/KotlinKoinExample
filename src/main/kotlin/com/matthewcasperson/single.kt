@@ -3,7 +3,7 @@ package com.matthewcasperson
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.dsl.module
 
-class FactoryInstance {
+class SingleInstance {
     companion object {
         var count: Int = 0
     }
@@ -16,16 +16,16 @@ class FactoryInstance {
 }
 
 fun main() {
-    val factoryModule = module {
-        factory { FactoryInstance() }
+    val singleModule = module {
+        single { SingleInstance() }
     }
 
     var app = startKoin {
         printLogger()
-        modules(factoryModule)
+        modules(singleModule)
     }
 
-    println(app.koin.get<FactoryInstance>().hello())
-    println(app.koin.get<FactoryInstance>().hello())
-    println(app.koin.get<FactoryInstance>().hello())
+    println(app.koin.get<SingleInstance>().hello())
+    println(app.koin.get<SingleInstance>().hello())
+    println(app.koin.get<SingleInstance>().hello())
 }
