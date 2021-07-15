@@ -21,7 +21,6 @@ fun main() {
     }
 
     var app = startKoin {
-        printLogger()
         modules(singleModule)
     }
 

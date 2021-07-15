@@ -26,8 +26,7 @@ fun main() {
         single { GoodbyeServiceImpl(get()) as GoodbyeService }
     }
 
-    var app = startKoin {
-        printLogger()
+    startKoin {
         modules(goodbyeModule)
     }
 

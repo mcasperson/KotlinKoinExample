@@ -17,7 +17,6 @@ fun main() {
     }
 
     var app = startKoin {
-        printLogger()
         modules(helloService)
     }
 
